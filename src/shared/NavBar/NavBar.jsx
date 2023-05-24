@@ -5,10 +5,10 @@ const NavBar = () => {
   const navOptions = (
     <>
       <li>
-        <Link>Home</Link>
+        <Link to="/">Home</Link>
         <Link>CONTACT us</Link>
         <Link>DASHBOARD</Link>
-        <Link>Our Menu</Link>
+        <Link to="/menu">Our Menu</Link>
         <Link>Our Shop</Link>
         <Link>Cart</Link>
         <Link>SIGN OUT</Link>
@@ -19,7 +19,7 @@ const NavBar = () => {
   return (
     <div>
       <div className="navbar bg-black opacity-50 fixed z-10 max-w-screen-xl text-white">
-        <div className="navbar-start">
+        <div className="navbar-start text-white">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
@@ -46,8 +46,8 @@ const NavBar = () => {
           </div>
           <a className="btn btn-ghost normal-case text-xl"><span className="text-2xl">Bistro Boss</span> <br /> Resturent</a>
         </div>
-        <div className="navbar-center bg-black opacity-50 text-white hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navOptions}</ul>
+        <div className="navbar-center  bg-black opacity-50 text-white hidden lg:flex">
+          <ul className="menu menu-horizontal px-1 text-white">{navOptions}</ul>
         </div>
       </div>
     </div>
