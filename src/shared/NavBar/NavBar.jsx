@@ -44,7 +44,7 @@ const NavBar = () => {
               {navOptions}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <a className="btn btn-ghost normal-case text-xl"><span className="text-2xl">Bistro Boss</span> <br /> Resturent</a>
         </div>
         <div className="navbar-center bg-black opacity-50 text-white hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
