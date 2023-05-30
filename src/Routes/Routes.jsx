@@ -9,6 +9,7 @@ import Secret from "../shared/Secret/Secret";
 import PrivetRout from "./PrivetRout";
 import DashBord from "../LayOut/DashBord";
 import MyCart from "../pages/Dashbord/MyCart";
+import AllUsers from "../pages/Dashbord/AllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -43,12 +44,16 @@ export const router = createBrowserRouter([
   },
   {
     path:"/dashboard",
-    element:<DashBord></DashBord>,
+    element:<PrivetRout><DashBord></DashBord></PrivetRout>,
     children:[
       {
         path:'mycart',
         element:<MyCart></MyCart>
-      }
+      },
+      {
+        path:'allusers',
+        element:<AllUsers></AllUsers>
+      },
     ]
   }
 ]);

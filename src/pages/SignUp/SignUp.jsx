@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../Proider/AuthProvider';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const SignUp = () => {
     const {createUser,updateUser}=useContext(AuthContext)
+    const navigate= useNavigate()
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -15,8 +17,20 @@ const SignUp = () => {
             console.log(user)
             updateUser(data.name,data.photoUrl)
             .then(() => {
+                const savedUser ={email:data.email,name:data.name}
                 // Profile updated!
-                alert('user updated successfully')
+                // alert('user updated successfully')
+                fetch('http://localhost:5000/users',{
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(savedUser)
+                })
+                .then(res=>res.json())
+                .then(data=>{
+                    console.log(data);
+                    navigate("/")
+                    alert('user updated successfully and saved successfully')
+                })
                 // ...
               }).catch((error) => {
                 // An error occurred
@@ -74,6 +88,8 @@ const SignUp = () => {
                         </div>
                     </form>
                     <p><small>allrady have an account <Link className='btn btn-link' to="/login">login</Link></small></p>
+
+                    <SocialLogin></SocialLogin>
                 </div>
             </div>
         </div>
