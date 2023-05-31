@@ -4,10 +4,15 @@ import { FaHome, FaCalendarAlt, FaWallet, FaShoppingCart } from 'react-icons/fa'
 import { ImMenu } from 'react-icons/im';
 import { BsShop } from 'react-icons/bs';
 import useCart from '../hooks/useCart';
+import useAdmin from '../hooks/useAdmin';
 
 const DashBord = () => {
     const [cart] = useCart()
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
+
+
+
+    // const isAdmin = false;
     return (
         <div className="drawer drawer-mobile">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
